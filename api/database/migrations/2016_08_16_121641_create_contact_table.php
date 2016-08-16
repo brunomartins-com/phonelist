@@ -15,9 +15,10 @@ class CreateContactTable extends Migration
         Schema::create('contact', function (Blueprint $table) {
             $table->increments('contactId');
             $table->string('name', 100);
-            $table->string('phone', 14)->unique();
+            $table->string('phone', 14);
             $table->integer('company');
             $table->timestamps();
+            $table->unique(['contactId', 'phone']);
             $table->foreign('company')->references('companyId')->on('company')->onDelete('cascade');
         });
     }

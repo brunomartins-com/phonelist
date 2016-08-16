@@ -16,6 +16,7 @@ class CreateCompanyTable extends Migration
             $table->increments('companyId');
             $table->string('name', 100);
             $table->timestamps();
+            $table->unique(['companyId', 'name']);
         });
     }
 
