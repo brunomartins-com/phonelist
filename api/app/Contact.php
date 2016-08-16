@@ -13,7 +13,7 @@ class Contact extends Model {
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function company() {
+    public function getCompany() {
 
         return self::belongsTo(Company::class, 'company', 'companyId');
 

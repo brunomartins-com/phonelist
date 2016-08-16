@@ -4,8 +4,16 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('contacts', 'ContactController@get');
-$app->post('contacts/add', 'ContactController@post');
-$app->get('contacts/show/{contactId}', 'ContactController@show');
-$app->put('contacts/edit', 'ContactController@put');
-$app->delete('contacts/delete', 'ContactController@delete');
+$app->group(['prefix' => 'companies', 'middleware' => 'corsMiddleware', 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+
+    $app->get('/', 'CompanyController@get');
+
+});
+
+$app->group(['prefix' => 'contacts', 'middleware' => 'corsMiddleware', 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+
+    $app->get('/', ['uses' => 'ContactController@get']);
+    $app->post('add', 'ContactController@post');
+    $app->delete('delete', 'ContactController@delete');
+
+});

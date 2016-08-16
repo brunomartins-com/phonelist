@@ -1,0 +1,77 @@
+<html ng-app="phoneList">
+	<head>
+		<meta charset="utf-8">
+		<title>Phone List</title>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css">
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular/angular-messages.js"></script>
+		<script src="lib/angular/angular-ng-mask.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers/phoneList.js"></script>
+		<script src="js/services/contactAPIService.js"></script>
+	</head>
+	<body ng-controller="phoneListController">
+		<div class="jumbotron">
+			<h3>{{app}}</h4>
+			<input type="text" class="form-control" ng-model="keywords" placeholder="Search...">
+			<table ng-show="contacts.length > 0" class="table table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th><a href="" ng-click="tableOrderBy('name')">Name</a></th>
+						<th><a href="" ng-click="tableOrderBy('phone')">Phone</a></th>
+						<th><a href="" ng-click="tableOrderBy('company.name')">Company</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-class="{selected: contact.selected}" ng-repeat="contact in contacts | filter:keywords | orderBy:fieldOrdenation:directionOrdenation">
+						<td><input type="checkbox" ng-model="contact.selected"></td>
+						<td>{{contact.name}}</td>
+						<td>{{contact.phone}}</td>
+						<td>{{contact.get_company.name}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<form name="contactForm">
+				<input type="text" class="form-control" placeholder="Name" name="name" ng-model="contact.name" ng-required="true" ng-maxlength="30">
+				<input type="text" class="form-control" placeholder="(000) 000-0000" name="phone" maxlength="14" ng-model="contact.phone" ng-required="true" mask="(999) 999-9999" clean="false" ng-pattern="/^[(]\d{3}[)] \d{3}[-]\d{4}$/">
+				<select class="form-control" ng-model="contact.company" ng-options="company.companyId as company.name for company in companies | orderBy:'name':false" ng-required="true">
+					<option value="">Choose a company</option>
+				</select>
+			</form>
+			<div ng-show="successMessage != null" class="alert alert-success">
+				{{successMessage}}
+			</div>
+			<div ng-show="errorMessage != null" class="alert alert-danger">
+				<span ng-repeat="error in errorMessage">{{error}}</span>
+			</div>
+
+			<div ng-show="contactForm.name.$dirty && contactForm.name.$invalid" ng-messages="contactForm.name.$error" class="alert alert-danger">
+				<span ng-message="required">
+					Please enter the name.
+				</span>
+				<span ng-message="maxlength">
+					Please enter no more than 30 characters.
+				</span>
+			</div>
+			<div ng-show="contactForm.phone.$dirty && contactForm.phone.$invalid" ng-messages="contactForm.phone.$error" class="alert alert-danger">
+				<span ng-message="required">
+					Please enter the phone number.
+				</span>
+				<span ng-message="pattern">
+					Please enter the valid phone number.
+				</span>
+			</div>
+			<div ng-show="contactForm.company.$invalid && contactForm.company.$dirty" class="alert alert-danger">
+				<span>
+					Please choose one company.
+				</span>
+			</div>
+			<button class="btn btn-primary btn-block" ng-click="addContact(contact)" ng-disabled="contactForm.$invalid">Add Contact</button>
+			<button class="btn btn-danger btn-block" ng-click="deleteContacts(contacts)" ng-show="isContactSelected(contacts)">Delete Contacts</button>
+		</div>
+		<div ng-include="'view/footer.html'"></div>
+	</body>
+</html>

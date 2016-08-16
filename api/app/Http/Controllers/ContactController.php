@@ -32,6 +32,10 @@ class ContactController extends Controller
     {
         $contacts = $this->contact->get();
 
+        foreach ($contacts as $contact){
+            array_add($contact, 'get_company', $contact->getCompany);
+        }
+
         return json_encode($contacts);
     }
 
@@ -74,67 +78,6 @@ class ContactController extends Controller
         $response = [
             'status'    => true,
             'message'   => 'Contact was added successfully!'
-        ];
-
-        return json_encode($response);
-    }
-
-    /*
-     * Show contact by id
-     *
-     * @param $contactId
-     *
-     * @return json
-     */
-    public function show($contactId)
-    {
-        $contact = Contact::findOrFail($contactId);
-
-        return json_encode($contact);
-    }
-
-    /*
-     * Edit a contact
-     *
-     * @param Request
-     *
-     * @return json
-     */
-    public function put(Request $request)
-    {
-        $response = [];
-        $validator = Validator::make($request->all(), [
-            'contactId' => 'required|integer|exists:contact,contactId',
-            'name'      => 'required|string|max:100',
-            'phone'     => 'required|string|unique:contact|min:14|max:14',
-            'company'   => 'required|integer'
-        ], [
-            'exists'    => 'The selected contact does not exist!'
-        ]);
-
-        if ($validator->fails())
-        {
-            $errors = new Errors();
-            return $errors->getAsJSON($validator);
-        }
-
-        try
-        {
-            $this->contact->findOrFail($request->contactId)->update([
-                'name' => $request->name,
-                'phone' => $request->phone,
-                'company' => $request->company
-            ]);
-        }
-        catch (QueryException $e)
-        {
-            $response = ['status' => false, 'message' => 'An error occurred while editing.'];
-            return json_encode($response);
-        }
-
-        $response = [
-            'status'    => true,
-            'message'   => 'Contact was edited successfully!'
         ];
 
         return json_encode($response);
