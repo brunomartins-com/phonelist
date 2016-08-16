@@ -1,4 +1,4 @@
-angular.module("phoneList").controller("phoneListController", function ($scope, $http, APIContact) {
+angular.module("phoneList").controller("phoneListController", function ($scope, APIContact, APICompany) {
     $scope.app = "Phone List";
 
     $scope.successMessage = null;
@@ -17,7 +17,7 @@ angular.module("phoneList").controller("phoneListController", function ($scope, 
     $scope.companies = [];
     // FUNCTION TO LOAD THE COMPANIES
     var loadCompanies = function () {
-        APIContact.getCompanies().success(function (data, status) {
+        APICompany.getCompanies().success(function (data, status) {
             $scope.companies = data;
         }).error(function (data, status) {
             $scope.errorMessage = "An error occurred while loading companies.";

@@ -11,14 +11,9 @@ angular.module('phoneList').factory('APIContact', function ($http) {
         return $http.delete('http://localhost:8000/contacts/delete', {params: {contactId: contact.contactId}});
     };
 
-    var _getCompanies = function () {
-        return $http.get('http://localhost:8000/companies');
-    };
-
     return {
         getContacts:    _getContacts,
         postContact:    _postContact,
-        deleteContact:  _deleteContact,
-        getCompanies:   _getCompanies
+        deleteContact:  _deleteContact
     }
 });
