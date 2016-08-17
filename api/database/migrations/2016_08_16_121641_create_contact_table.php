@@ -16,10 +16,10 @@ class CreateContactTable extends Migration
             $table->increments('contactId');
             $table->string('name', 100);
             $table->string('phone', 14);
-            $table->integer('company');
+            $table->integer('company')->unsigned();
             $table->timestamps();
             $table->unique(['contactId', 'phone']);
-            $table->foreign('company')->references('companyId')->on('company')->onDelete('cascade');
+            $table->foreign('company')->references('companyId')->on('company')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
