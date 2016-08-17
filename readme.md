@@ -52,13 +52,17 @@ I made all project in nearly 15 hours split on two days.
 
 **4 - Install and Run the localhost server**
 
-- 4.1 - Execute this command on terminal
+- 4.1 - Open another tab on terminal and go to "front-end" folder
+```bash
+    cd ../front-end
+```
+- 4.2 - Execute this command on terminal
 ```bash
     npm install -g http-server
 ```
-- _4.1.1 - If you don't have the npm in your computer, please [click here](https://docs.npmjs.com/getting-started/installing-node)_
+- _4.2.1 - If you don't have the npm in your computer, please [click here](https://docs.npmjs.com/getting-started/installing-node)_
 
-- 4.2 step:
+- 4.3 step:
 ```bash
     http-server
 ```
@@ -67,7 +71,7 @@ I made all project in nearly 15 hours split on two days.
 ```bash
     http://127.0.0.1:8080
 ```
-- _4.3 - You just need copy the address and paste on your browser_
+- _4.4 - You just need copy the address and paste on your browser_
 
 
 ## Author
