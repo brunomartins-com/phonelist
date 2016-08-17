@@ -58,11 +58,14 @@ angular.module("phoneList").controller("phoneListController", function ($scope, 
                         $scope.errorMessage = data.errors;
                     }else {
                         $scope.successMessage = data.message;
+                        // $scope.contacts.splice(contacts, contact);
                         loadContacts();
                     }
                 }).error(function (data, status) {
                     $scope.errorMessage = [{0:"An error occurred while deleting."}];
                 });
+            }else{
+                return contact;
             }
         });
     };
