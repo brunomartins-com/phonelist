@@ -1,0 +1,56 @@
+// Sponsors
+.event-sponsor-list {
+  list-style: none;
+  margin: 0;
+  padding: 2em 0;
+  li {
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
+.sponsor {
+  height: 40px;
+  width: 160px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: block;
+  margin-bottom: 20px;
+  @include breakpoint(l) {
+    margin-bottom: 0;
+  }
+}
+.sponsor-facebook {
+  background-image: url(../images/facebook-grey.svg);
+  &:hover {
+    background-image: url(../images/facebook.svg);
+  }
+}
+.sponsor-jquery {
+  width: 150px;
+  background-image: url(../images/jquery-grey.svg);
+  &:hover {
+    background-image: url(../images/jquery.svg);
+  }
+}
+.sponsor-envato {
+  background-image: url(../images/envato-grey.svg);
+  &:hover {
+    background-image: url(../images/envato.svg);
+  }
+}
+.sponsor-tumblr {
+  width: 150px;
+  background-image: url(../images/tumblr-grey.svg);
+  &:hover {
+    background-image: url(../images/tumblr.svg);
+  }
+}
+.sponsor-atlassian {
+  width: 150px;
+  background-image: url(../images/atlassian-grey.svg);
+  &:hover {
+    background-image: url(../images/atlassian.svg);
+  }
+}
