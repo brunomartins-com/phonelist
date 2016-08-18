@@ -16,33 +16,37 @@ I made all project in nearly 15 hours split on two days.
 ```bash
     git clone https://github.com/brunomartins-com/phonelist.git
 ```
-- _If you don't have the git in your computer, please [click here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)_
+- _If you don't have the git in your computer, please <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">click here</a>)_
 
 **2 - Configuring the API**
  
-- 2.1 - Go to the "api" folder by terminal and execute the command
+- 2.1 - Go to the "api" folder by terminal
+```bash
+    cd phonelist/api
+```
+- 2.2 - On "api", execute the command
 ```bash
     composer install
 ```
-- _2.1.1 - If you don't have the composer in your computer, please [click here](https://getcomposer.org)_
+- _2.2.1 - If you don't have the composer in your computer, please <a href="https://getcomposer.org" target="_blank">click here</a>_
 
-- 2.2 step:
+- 2.3 step:
 ```bash
     cp .env.example .env
 ```
-- 2.3 step:
+- 2.4 step:
 ```bash
     php artisan migrate:install
 ```
-- 2.4 step:
+- 2.5 step:
 ```bash
     php artisan migrate
 ```
-- 2.5 step:
+- 2.6 step:
 ```bash
     composer dump-autoload
 ```
-- 2.6 step:
+- 2.7 step:
 ```bash
     php artisan db:seed
 ```
@@ -64,7 +68,7 @@ I made all project in nearly 15 hours split on two days.
 ```bash
     npm install -g http-server
 ```
-- _4.2.1 - If you don't have the npm in your computer, please [click here](https://docs.npmjs.com/getting-started/installing-node)_
+- _4.2.1 - If you don't have the npm in your computer, please <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank">click here</a>)_
 
 - 4.3 step:
 ```bash
@@ -73,13 +77,15 @@ I made all project in nearly 15 hours split on two days.
 
 - _The "http-server" command show your localhost address, that probably will be:_
 ```bash
-    http://127.0.0.1:8080
-```
-- _4.4 - You just need copy the address and paste on your browser_
+   http://127.0.0.1:8080
+``` 
 
+- 4.4 - You just need click or copy the address and paste on your browser
+
+    <a href="http://127.0.0.1:8080" target="_blank">http://127.0.0.1:8080</a>
 
 ## Demo
-- http://phonelist.brunomartins.com
+- <a href="http://phonelist.brunomartins.com" target="_blank">http://phonelist.brunomartins.com</a>
 
 
 ## Author
@@ -105,7 +111,7 @@ Bruno Martins - Web Developer since 2005 with higher skills in:
 - Fireworks
 - Git/BitBucket
 
-####[Visit my portfolio](http://www.brunomartins.com)
+####<a href="http://www.brunomartins.com" target="_blank">Visit my portfolio</a>
 
 
 ## License
