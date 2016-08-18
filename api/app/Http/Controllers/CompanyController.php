@@ -30,7 +30,7 @@ class CompanyController extends Controller
      */
     public function get()
     {
-        $companies = $this->company->get();
+        $companies = $this->company->orderBy('name', 'asc')->get();
 
         return json_encode($companies);
     }

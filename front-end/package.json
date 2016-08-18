@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-clean": "*",
+    "gulp-concat": "*",
+    "gulp-ngdocs": "*",
+    "gulp-sass": "*",
+    "gulp-ng-annotate": "*",
+    "gulp-uglify": "*",
+    "merge-stream": "*",
+    "run-sequence": "*"
+  }
+}

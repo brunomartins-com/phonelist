@@ -30,7 +30,7 @@ class ContactController extends Controller
      */
     public function get()
     {
-        $contacts = $this->contact->get();
+        $contacts = $this->contact->orderBy('name', 'asc')->get();
 
         foreach ($contacts as $contact){
             array_add($contact, 'get_company', $contact->getCompany);
