@@ -28,17 +28,21 @@ I made all project in nearly 15 hours split on two days.
 
 - 2.2 step:
 ```bash
-    php artisan migrate:install
+    cp .env.example .env
 ```
 - 2.3 step:
 ```bash
-    php artisan migrate
+    php artisan migrate:install
 ```
 - 2.4 step:
 ```bash
-    composer dump-autoload
+    php artisan migrate
 ```
 - 2.5 step:
+```bash
+    composer dump-autoload
+```
+- 2.6 step:
 ```bash
     php artisan db:seed
 ```
